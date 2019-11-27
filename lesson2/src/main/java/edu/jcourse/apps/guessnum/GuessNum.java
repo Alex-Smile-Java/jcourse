@@ -19,6 +19,8 @@ public class GuessNum {
             System.out.println("Назовите своё имя");
             String name = stringScanner.next();
 
+            long gameStart = System.currentTimeMillis();
+
            System.out.println(randomInt);
 
             boolean isLooser = true;
@@ -30,9 +32,13 @@ public class GuessNum {
                 if (input1 < randomInt) System.out.println("Моё число больше");
                 if (input1 > randomInt) System.out.println("Моё число меньше");
                 if (input1 == randomInt) {
+
+                    long gameEnd = System.currentTimeMillis();
+                      long time = gameEnd - gameStart;
                     GameResult res = new GameResult();
                     res.name = name;
                     res.triesCount = i + 1 ;
+                    res.gameTime = time;
                     leaderBoard.add(res);
                     isLooser = false;
 
@@ -50,9 +56,9 @@ public class GuessNum {
             }
         }
 
-        System.out.println("Лидеры");
+        System.out.println("Лидеры Попытки Время");
         for (GameResult n: leaderBoard){
-            System.out.println(n.name + " " + n.triesCount);
+            System.out.println(n.name + "       " + n.triesCount + "        "+ n.gameTime/1000);
         }
         System.out.println("Досвидание");
     }
