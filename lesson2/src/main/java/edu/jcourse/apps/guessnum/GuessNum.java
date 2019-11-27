@@ -19,7 +19,7 @@ public class GuessNum {
             System.out.println("Назовите своё имя");
             String name = stringScanner.next();
 
-//            System.out.println(randomInt);
+           System.out.println(randomInt);
 
             boolean isLooser = true;
             for (int i = 0; i < 10; i++) {
@@ -47,6 +47,10 @@ public class GuessNum {
             }
         }
         System.out.println("Досвидание");
+        System.out.println("Лидеры");
+        for (String n: leaderBoard){
+            System.out.println(n);
+        }
     }
 
     static int askNum(int tryNr) {
