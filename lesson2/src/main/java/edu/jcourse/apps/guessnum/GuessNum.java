@@ -12,7 +12,7 @@ public class GuessNum {
     public static void main(String[] args) {
 
         Random random = new Random();
-        ArrayList <String> leaderBoard = new ArrayList<>();
+        ArrayList <GameResult> leaderBoard = new ArrayList<>();
 
         while (true) {
             int randomInt = random.nextInt(100) + 1;
@@ -30,7 +30,10 @@ public class GuessNum {
                 if (input1 < randomInt) System.out.println("Моё число больше");
                 if (input1 > randomInt) System.out.println("Моё число меньше");
                 if (input1 == randomInt) {
-                    leaderBoard.add(name);
+                    GameResult res = new GameResult();
+                    res.name = name;
+                    res.triesCount = i + 1 ;
+                    leaderBoard.add(res);
                     isLooser = false;
 
                     System.out.println("Вы угадали");
@@ -46,11 +49,12 @@ public class GuessNum {
                 break;
             }
         }
-        System.out.println("Досвидание");
+
         System.out.println("Лидеры");
-        for (String n: leaderBoard){
-            System.out.println(n);
+        for (GameResult n: leaderBoard){
+            System.out.println(n.name + " " + n.triesCount);
         }
+        System.out.println("Досвидание");
     }
 
     static int askNum(int tryNr) {
