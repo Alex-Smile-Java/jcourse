@@ -1,5 +1,6 @@
 package edu.jcourse.apps.guessnum;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -11,10 +12,14 @@ public class GuessNum {
     public static void main(String[] args) {
 
         Random random = new Random();
+        ArrayList <String> leaderBoard = new ArrayList<>();
 
         while (true) {
             int randomInt = random.nextInt(100) + 1;
-            System.out.println(randomInt);
+            System.out.println("Назовите своё имя");
+            String name = stringScanner.next();
+
+//            System.out.println(randomInt);
 
             boolean isLooser = true;
             for (int i = 0; i < 10; i++) {
@@ -25,6 +30,7 @@ public class GuessNum {
                 if (input1 < randomInt) System.out.println("Моё число больше");
                 if (input1 > randomInt) System.out.println("Моё число меньше");
                 if (input1 == randomInt) {
+                    leaderBoard.add(name);
                     isLooser = false;
 
                     System.out.println("Вы угадали");
