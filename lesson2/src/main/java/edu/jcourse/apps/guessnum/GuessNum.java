@@ -36,9 +36,9 @@ public class GuessNum {
                     long gameEnd = System.currentTimeMillis();
                       long time = gameEnd - gameStart;
                     GameResult res = new GameResult();
-                    res.name = name;
-                    res.triesCount = i + 1 ;
-                    res.gameTime = time;
+                    res.setName(name);
+                    res.setTriesCount(i+1);
+                    res.setGameTime(gameEnd-gameStart);
                     leaderBoard.add(res);
                     isLooser = false;
 
@@ -55,14 +55,12 @@ public class GuessNum {
                 break;
             }
         }
-
         System.out.println("Лидеры Попытки Время");
         for (GameResult n: leaderBoard){
-            System.out.println(n.name + "       " + n.triesCount + "        "+ n.gameTime/1000);
+            System.out.println(n.getName() + n.getTriesCount() +  n.getGameTime()/1000);
         }
         System.out.println("Досвидание");
     }
-
     static int askNum(int tryNr) {
         while (true) {
             try {
