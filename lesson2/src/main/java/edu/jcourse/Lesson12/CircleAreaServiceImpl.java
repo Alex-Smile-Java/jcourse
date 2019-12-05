@@ -15,4 +15,12 @@ public class CircleAreaServiceImpl implements CircleAreaService {
 
         return rectangleArea;
     }
+
+    @Override
+    public float cubeVolume(float a) {
+
+        float cubeVolume = a * a * a;
+
+        return cubeVolume;
+    }
 }

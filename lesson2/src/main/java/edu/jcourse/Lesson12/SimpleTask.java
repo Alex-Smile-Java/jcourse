@@ -24,7 +24,9 @@ public class SimpleTask {
 
         CircleAreaService service = new CircleAreaServiceImpl();
         CircleAreaService area = new CircleAreaServiceImpl();
+        CircleAreaService volume = new CircleAreaServiceImpl();
 
+        System.out.println(volume.cubeVolume(20));
         System.out.println(area.calculateArea(0.8F));
         System.out.println(service.rectangleArea(4,5));
 

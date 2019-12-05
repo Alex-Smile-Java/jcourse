@@ -7,4 +7,6 @@ public interface CircleAreaService {
 
     float rectangleArea(float a,float b);
 
+    float cubeVolume(float a);
+
 }
