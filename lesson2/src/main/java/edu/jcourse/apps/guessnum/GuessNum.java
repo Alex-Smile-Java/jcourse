@@ -1,9 +1,8 @@
 package edu.jcourse.apps.guessnum;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+
+import static jdk.nashorn.internal.objects.Global.print;
 
 public class GuessNum {
 
@@ -12,7 +11,8 @@ public class GuessNum {
     public static void main(String[] args) {
 
         Random random = new Random();
-        ArrayList <GameResult> leaderBoard = new ArrayList<>();
+
+        LeaderBoard leaderBoard = new LeaderBoard();
 
         while (true) {
             int randomInt = random.nextInt(100) + 1;
@@ -21,7 +21,7 @@ public class GuessNum {
 
             long gameStart = System.currentTimeMillis();
 
-           System.out.println(randomInt);
+            System.out.println(randomInt);
 
             boolean isLooser = true;
             for (int i = 0; i < 10; i++) {
@@ -34,11 +34,11 @@ public class GuessNum {
                 if (input1 == randomInt) {
 
                     long gameEnd = System.currentTimeMillis();
-                      long time = gameEnd - gameStart;
+                    long time = gameEnd - gameStart;
                     GameResult res = new GameResult();
                     res.setName(name);
-                    res.setTriesCount(i+1);
-                    res.setGameTime(gameEnd-gameStart);
+                    res.setTriesCount(i + 1);
+                    res.setGameTime(gameEnd - gameStart);
                     leaderBoard.add(res);
                     isLooser = false;
 
@@ -46,6 +46,7 @@ public class GuessNum {
                     break;
                 }
             }
+
             if (isLooser) {
                 System.out.println("Game Over" + randomInt);
             }
@@ -55,12 +56,12 @@ public class GuessNum {
                 break;
             }
         }
-        System.out.println("Лидеры Попытки Время");
-        for (GameResult n: leaderBoard){
-            System.out.println(n.getName() + n.getTriesCount() +  n.getGameTime()/1000);
-        }
+        leaderBoard.print();
+        leaderBoard.save();
+
         System.out.println("Досвидание");
     }
+
     static int askNum(int tryNr) {
         while (true) {
             try {

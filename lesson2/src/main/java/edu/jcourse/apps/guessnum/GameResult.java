@@ -30,4 +30,10 @@ public class GameResult {
     public void setGameTime(long gameTime) {
         this.gameTime = gameTime;
     }
+
+    @Override
+    public String toString() {
+        return String.format( "%s %d %d", name, triesCount, gameTime);
+    }
 }
+
