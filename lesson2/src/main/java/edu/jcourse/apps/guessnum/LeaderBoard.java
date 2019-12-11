@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class LeaderBoard {
@@ -17,7 +18,11 @@ public class LeaderBoard {
 
     public void print() {
         System.out.println("Лидеры Попытки Время");
-        for (GameResult n : leaderBoard) {
+        leaderBoard.sort(Comparator.comparingInt(GameResult::getTriesCount)
+        .thenComparingLong(GameResult::getGameTime));
+
+        for (int i = 0; i < Math.min(5, leaderBoard.size()); i++) {
+            GameResult n = leaderBoard.get(i);
             System.out.println(n.getName() + n.getTriesCount() + n.getGameTime() / 1000);
         }
     }

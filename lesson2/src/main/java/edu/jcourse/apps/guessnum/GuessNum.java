@@ -13,6 +13,7 @@ public class GuessNum {
         Random random = new Random();
 
         LeaderBoard leaderBoard = new LeaderBoard();
+        leaderBoard.load();
 
         while (true) {
             int randomInt = random.nextInt(100) + 1;
@@ -21,7 +22,7 @@ public class GuessNum {
 
             long gameStart = System.currentTimeMillis();
 
-            System.out.println(randomInt);
+              System.out.println(randomInt);
 
             boolean isLooser = true;
             for (int i = 0; i < 10; i++) {
