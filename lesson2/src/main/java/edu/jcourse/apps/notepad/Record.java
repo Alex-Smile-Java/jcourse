@@ -1,11 +1,22 @@
 package edu.jcourse.apps.notepad;
 
 public class Record {
-
+    private static int counter;
+    private int id;
     private String firstName;
     private String lastNAME;
     private String phoneNumber;
     private String email;
+
+    public Record () {
+        counter ++;
+        id = counter;
+    }
+
+
+    public int getId() {
+        return id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -38,6 +49,10 @@ public class Record {
     public void setEmail(String email) {
         this.email = email;
     }
-}
 
+    @Override
+    public String toString() {
+        return String.format("%d %s %s %s %s %d",id, firstName, lastNAME, phoneNumber, email, counter);
+    }
+}
 
