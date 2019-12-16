@@ -22,7 +22,7 @@ public class GuessNum {
 
             long gameStart = System.currentTimeMillis();
 
-              System.out.println(randomInt);
+            System.out.println(randomInt);
 
             boolean isLooser = true;
             for (int i = 0; i < 10; i++) {
