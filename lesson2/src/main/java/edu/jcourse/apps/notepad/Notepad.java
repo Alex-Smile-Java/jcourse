@@ -91,14 +91,18 @@ public class Notepad {
             case "note":
                 create(new NoteRecord());
                 break;
+            case "shoes":
+                create(new ShoesRecord());
+                break;
             default:
                 System.out.println("error: unknown type");
         }
     }
-        private  static void  create(Record aRecord){
+
+    private static void create(Record aRecord) {
         aRecord.askData();
         records.add(aRecord);
-        }
+    }
 
 
 //    static void createNote() {

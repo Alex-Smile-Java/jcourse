@@ -7,11 +7,11 @@ public class PersonRecord extends Record {
     private String email;
 
     @Override
-    public void askData() {
-         firstName = Notepad.askString("first name: ");
-         lastNAME = Notepad.askString("last name");
-         phoneNumber = Notepad.askString("phone: ");
-         email = Notepad.askString("email: ");
+        public void askData() {
+            firstName = Notepad.askString("first name: ");
+            lastNAME = Notepad.askString("last name");
+            phoneNumber = Notepad.askString("phone: ");
+            email = Notepad.askString("email: ");
     }
 
     public String getFirstName() {
