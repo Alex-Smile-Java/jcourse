@@ -4,6 +4,9 @@ import edu.jcourse.apps.guessnum.GameResult;
 import edu.jcourse.apps.guessnum.LeaderBoard;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -50,6 +53,15 @@ step 7: Новая тема
     Конструктор - см Record()
  */
 public class Notepad {
+    public static  final  String STR_TIME_PATTERN = "HH:mm";
+    public static final DateTimeFormatter TIME_PATTERN
+            = DateTimeFormatter.ofPattern(STR_TIME_PATTERN);
+
+    public  static final  String STR_DATE_PATTERN = "yyyy.MM.dd";
+    public  static final DateTimeFormatter DATE_PATTERN
+            = DateTimeFormatter.ofPattern(STR_DATE_PATTERN);
+
+
     static final Scanner stringScanner = new Scanner(System.in);
     private static final ArrayList<Record> records = new ArrayList<>();
 
@@ -94,6 +106,12 @@ public class Notepad {
             case "shoes":
                 create(new ShoesRecord());
                 break;
+                case "alarm":
+                create(new AlarmRecords());
+                break;
+                case "reminder":
+                create(new ReminderRecord());
+                break;
             default:
                 System.out.println("error: unknown type");
         }
@@ -130,6 +148,28 @@ public class Notepad {
     static String askString(String message) {
         System.out.println(message);
         return stringScanner.next();
+    }
+
+    static int askInt(String message) {
+        System.out.println(message);
+        return stringScanner.nextInt();
+    }
+
+    public static LocalTime askTime(String message) {
+        String strTime = askString(message + " " + STR_TIME_PATTERN + " ");
+
+//        LocalTime time = LocalTime.parse(strTime, TIME_PATTERN);
+//        return time;
+        return LocalTime.parse(strTime, TIME_PATTERN);
+    }
+
+    public static LocalDate askDate(String d) {
+        String strDate = askString(d + " " + STR_DATE_PATTERN + " ");
+
+        LocalDate date = LocalDate.parse(strDate, DATE_PATTERN);
+
+         return date;
+
     }
 }
 

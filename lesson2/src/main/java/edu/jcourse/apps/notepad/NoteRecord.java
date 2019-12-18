@@ -19,8 +19,13 @@ public class NoteRecord extends Record {
         this.text = note;
     }
 
+
+
     @Override
     public String toString() {
-        return String.format("%d %s", getId(), text);
+        return String.format("%s %s", super.toString(), text);
     }
+
+
 }
+

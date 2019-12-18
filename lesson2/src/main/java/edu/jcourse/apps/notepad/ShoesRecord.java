@@ -1,24 +1,24 @@
 package edu.jcourse.apps.notepad;
 
 public class ShoesRecord extends Record {
-    private String size;
+    private int size;
     private String colour;
     private String season;
 
     @Override
     public void askData() {
-        size = Notepad.askString("size: ");
+        size = Notepad.askInt("size: ");
         colour = Notepad.askString("colour: ");
         season = Notepad.askString("season : ");
 
     }
 
 
-    public String getSize() {
+    public int getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
@@ -37,9 +37,10 @@ public class ShoesRecord extends Record {
     public void setSeason(String season) {
         this.season = season;
     }
+
         @Override
         public String toString() {
-            return String.format("%d %s %s %s ", getId(), size, colour, season);
+            return String.format("%d %d %s %s ", getId(), size, colour, season);
         }
 
 }
